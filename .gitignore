@@ -1,5 +1,5 @@
 __pycache__/
 .vscode/
 my_env/
-test/
+*.wav
 client.py

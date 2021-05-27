@@ -9,18 +9,15 @@ app = Flask(__name__)
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    """Endpoint to predict keyword
 
-:return (json): This endpoint returns a json file with the following format:
-    {
-        "keyword": "down"
-    }
-    """
+    file = open(request.files, "rb")
+    values = {"file": (request.files, file, "audio/wav")}
+
 
     # get file from POST request and save it
-    audio_file = request.files["file"]
+    # audio_file = request.files["file"]
     file_name = str(random.randint(0, 100000))
-    audio_file.save(file_name)
+    values.save(file_name)
 
     # instantiate keyword spotting service singleton and get prediction
     kss = Keyword_Spotting_Service()
