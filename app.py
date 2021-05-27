@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route("/predict", methods=["POST"])
 def predict():
 
-    audio_file = request.files['file']
+    # audio_file = request.files['file']
     # file = open(audio_file.filename, "rb")
     # values = {"file": (audio_file.filename, file, "audio/wav")}
 
