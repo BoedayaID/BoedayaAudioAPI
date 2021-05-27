@@ -12,8 +12,8 @@ app = Flask(__name__)
 def predict():
 
     audio_file = request.files['file']
-    file = open(audio_file.filename, "rb")
-    values = {"file": (audio_file.filename, file, "audio/wav")}
+    # file = open(audio_file.filename, "rb")
+    # values = {"file": (audio_file.filename, file, "audio/wav")}
 
 
     # # get file from POST request and save it
@@ -31,8 +31,7 @@ def predict():
     # # send back result as a json file
     # result = {"keyword": predicted_keyword}
     # return jsonify(result)
-    prediction = "<h1>Predicted</h1> {{ variable }}"
-    return render_template(prediction, variable=audio_file.filename)
+    return render_template("prediction.html", variable=str(audio_file.filename))
 
 @app.route('/')
 def index():
