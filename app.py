@@ -1,6 +1,7 @@
 import random
 import os
 from flask import Flask, request, jsonify
+import requests
 from keyword_spotting_service import Keyword_Spotting_Service
 
 # instantiate flask app
@@ -10,8 +11,9 @@ app = Flask(__name__)
 @app.route("/predict", methods=["POST"])
 def predict():
 
-    file = open(request.files, "rb")
-    values = {"file": (request.files, file, "audio/wav")}
+    audio_file = request.files['file']
+    file = open(audio_file.filename, "rb")
+    values = {"file": (audio_file.filename, file, "audio/wav")}
 
 
     # get file from POST request and save it
@@ -30,6 +32,9 @@ def predict():
     result = {"keyword": predicted_keyword}
     return jsonify(result)
 
+@app.route('/')
+def index():
+    return "<h1>Welcome to the server!!</h1>"
 
 if __name__ == "__main__":
     app.run(debug=False)
