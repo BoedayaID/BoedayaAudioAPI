@@ -35,7 +35,7 @@ def predict():
 
     # # send back result as a json file
     result = {"keyword": predicted_keyword}
-    return jsonify(result, accuracy)
+    return jsonify(result)
     # return render_template("prediction.html", variable=str(audio_file.filename))
     # return "<h1>TEST</h1>"
 
