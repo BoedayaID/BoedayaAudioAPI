@@ -42,7 +42,7 @@ class _Keyword_Spotting_Service:
         predictions = self.model.predict(MFCCs)
         predicted_index = np.argmax(predictions)
         predicted_keyword = self._mapping[predicted_index]
-        return predicted_keyword
+        return predicted_keyword, predictions.tolist()
 
 
     def preprocess(self, file_path, num_mfcc=13, n_fft=2048, hop_length=512):

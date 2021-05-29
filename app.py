@@ -28,14 +28,14 @@ def predict():
 
     # # instantiate keyword spotting service singleton and get prediction
     kss = Keyword_Spotting_Service()
-    predicted_keyword = kss.predict(file_name)
+    predicted_keyword, accuracy = kss.predict(file_name)
 
     # # we don't need the audio file any more - let's delete it!
     os.remove(file_name)
 
     # # send back result as a json file
     result = {"keyword": predicted_keyword}
-    return jsonify(result)
+    return jsonify(result, accuracy)
     # return render_template("prediction.html", variable=str(audio_file.filename))
     # return "<h1>TEST</h1>"
 
