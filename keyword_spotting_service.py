@@ -3,7 +3,7 @@ import tensorflow as tf
 import numpy as np
 
 SAVED_MODEL_PATH = "model.h5"
-SAMPLES_TO_CONSIDER = 38103
+SAMPLES_TO_CONSIDER = 64356
 
 class _Keyword_Spotting_Service:
     """Singleton class for keyword spotting inference with trained models.
