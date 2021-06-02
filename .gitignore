@@ -1,7 +1,0 @@
-__pycache__/
-.vscode/
-my_env/
-model_history/
-test/
-*.wav
-client.py
